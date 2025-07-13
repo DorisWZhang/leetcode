@@ -1,4 +1,6 @@
 class Solution:
+
+    # 2025-07-12
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
 
         # loop through and try each station as a starting point if its a valid starting point (gas[i] >= cost[i])
