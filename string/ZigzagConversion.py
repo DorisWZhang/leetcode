@@ -10,28 +10,19 @@ class Solution:
         rowsStrings = [""] * numRows # start a word for each row
         row = 0 # track current row
         i = 0
-        goingDown = False # set to false so trigger down can be set in loop
+        direction = -1 # set it to go up, so first iteration will flip it
         # build strings for each row
-        while i < len(s):
-            rowsStrings[row] += s[i]
+        for letter in s:
+            rowsStrings[row] += letter
 
-            if row == 0:
-                goingDown = not goingDown # flip direction
+            if row == 0 or row == numRows-1:
+                direction = -direction
+
+            row += direction
             
-            if row == numRows-1:
-                goingDown = not goingDown # flip direction
-            
-            if goingDown:
-                row +=1
-            else:
-                row-=1
-            i+=1
-        
         # build string
         result = ""
         for string in rowsStrings:
             result += string
     
         return result
-
-            
